@@ -1,8 +1,12 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {ListModule} from 'test-lib';
+import {BorderModule} from 'test-lib';
+import {TextContainerModule} from 'test-lib';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+/*!!!Обратите внимание, импортим по названию пакета, а не по пути файла*/
 
 @NgModule({
   declarations: [
@@ -10,9 +14,13 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ListModule,
+    BorderModule,
+    TextContainerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
