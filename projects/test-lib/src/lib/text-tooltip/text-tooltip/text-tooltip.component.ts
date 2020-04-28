@@ -9,28 +9,24 @@ export class TextTooltipComponent implements OnInit, AfterViewInit {
   @Input() text: string;
   @Input() textStringNumber: number;
   @ViewChild('height') nameParagraph: ElementRef;
-  firstTextHeight: number;
   textHeight: number;
-  ellipsisAreNeed: boolean;
-
   constructor() { }
-
-  ellipsisControl(){
-   this.firstTextHeight = this.nameParagraph.nativeElement.offsetHeight;
+  heightControl(){
+   const firstTextHeight = this.nameParagraph.nativeElement.offsetHeight;
    const textHeight = this.calculateTextHeight();
-   if (textHeight < this.firstTextHeight) {
-     this.textHeight = textHeight;
-     this.ellipsisAreNeed = true;
+   if (textHeight < firstTextHeight) {
+     for (let l = this.text.length - 1; l >= 0 && this.nameParagraph.nativeElement.offsetHeight > textHeight; --l) {
+       this.nameParagraph.nativeElement.innerText = this.text.substring(0, l) + '...';
+     }
    } else {
-     this.textHeight = this.firstTextHeight;
-     this.ellipsisAreNeed = false;
+     this.textHeight = firstTextHeight;
    }
   }
   calculateTextHeight(){
     return this.textStringNumber * 20;
   }
   ngAfterViewInit() {
-    this.ellipsisControl();
+    this.heightControl();
   }
   ngOnInit() {
   }

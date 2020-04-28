@@ -1,6 +1,5 @@
 <div class="box">
-  <div class="box__ellipsis" *ngIf="ellipsisAreNeed" style="margin-top: {{textHeight-20}}px">...</div>
-  <p title="{{text}}" class="box__text" style="max-height: {{textHeight}}px" #height>
-  {{text}}
+  <div title="{{text}}" class="box__text" #height>
+    {{text}}
+  </div>
 </div>
-
