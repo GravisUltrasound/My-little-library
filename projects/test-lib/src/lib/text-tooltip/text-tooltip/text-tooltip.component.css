@@ -7,8 +7,12 @@
   color: #24292e;
   line-height: 20px;
   border-radius: 4px;
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
 }
-
+.box__text{
+  margin: 0;
+  overflow: hidden;
+}
+.box__ellipsis{
+  background-color: #fafafa;
+  float: right;
+}
